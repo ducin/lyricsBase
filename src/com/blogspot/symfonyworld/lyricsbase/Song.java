@@ -1,8 +1,8 @@
+package com.blogspot.symfonyworld.lyricsbase;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
 
 /**
  *
@@ -70,7 +70,8 @@ public class Song {
     }
 
     private void readLyricsFromFile(String file) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String filepath = System.getProperty("user.dir") + "/db/" + file;
+        BufferedReader reader = new BufferedReader(new FileReader(filepath));
         String line = null;
         StringBuilder stringBuilder = new StringBuilder();
         String ls = System.getProperty("line.separator");
