@@ -8,9 +8,15 @@ import java.util.Iterator;
 public class CommandLineView {
 
     private Jukebox jukebox;
-    
-    public CommandLineView() {
-        jukebox= new Jukebox("Metal Jukebox");
+
+    public CommandLineView() {}
+
+    public void setJukebox(Jukebox jukebox) {
+        this.jukebox = jukebox;
+    }
+
+    public Jukebox getJukebox() {
+        return jukebox;
     }
 
     public void displayAllSongs() {
@@ -20,10 +26,5 @@ public class CommandLineView {
             Song song = (Song) it.next();
             System.out.println(song.toString());
         }
-    }
-
-    public static void main(String[] args) {
-        CommandLineView clv = new CommandLineView();
-        clv.displayAllSongs();
     }
 }
