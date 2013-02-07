@@ -18,11 +18,11 @@ public class Song {
     public Song() {
     }
 
-    public Song(String author, String title, String album, String lyrics_filepath) throws IOException {
+    public Song(String author, String title, String album, String lyrics) throws IOException {
         this.author = author;
         this.title = title;
         this.album = album;
-        readLyricsFromFile(lyrics_filepath);
+        this.lyrics = lyrics;
     }
 
     public String toString() {
@@ -69,7 +69,7 @@ public class Song {
         return lyrics.substring(0, 100) + "...";
     }
 
-    private void readLyricsFromFile(String file) throws IOException {
+    public void readLyricsFromFile(String file) throws IOException {
         String filepath = System.getProperty("user.dir") + "/db/" + file;
         BufferedReader reader = new BufferedReader(new FileReader(filepath));
         String line = null;

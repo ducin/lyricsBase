@@ -41,6 +41,7 @@ public class ArrayListJukebox implements Jukebox {
         this.name = name;
     }
 
+    @Override
     public String toString() {
         return "Jukebox: " + name;
     }
@@ -64,7 +65,7 @@ public class ArrayListJukebox implements Jukebox {
 
     @Override
     public void saveSong(Song song) {
-        if (!song.equals(null)) {
+        if (song != null) {
             songs.add(song);
         }
     }
