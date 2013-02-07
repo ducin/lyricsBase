@@ -10,5 +10,6 @@ public interface Jukebox {
 
     List getSongs();
     Song getSong(String title);
+    String getName();
 
 }
