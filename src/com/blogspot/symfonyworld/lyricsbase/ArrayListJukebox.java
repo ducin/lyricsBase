@@ -31,10 +31,12 @@ public class ArrayListJukebox implements Jukebox {
         this("Metal Jukebox");
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -43,17 +45,32 @@ public class ArrayListJukebox implements Jukebox {
         return "Jukebox: " + name;
     }
 
+    @Override
     public List getSongs() {
         return songs;
     }
 
+    @Override
     public Song getSong(String title) {
         Iterator it = songs.iterator();
         while (it.hasNext()) {
             Song song = (Song) it.next();
-            if (title.equals(song.getTitle()))
+            if (title.equals(song.getTitle())) {
                 return song;
+            }
         }
         return null;
+    }
+
+    @Override
+    public void saveSong(Song song) {
+        if (!song.equals(null)) {
+            songs.add(song);
+        }
+    }
+
+    @Override
+    public void deleteSong(Song song) {
+        songs.remove(song);
     }
 }

@@ -10,6 +10,11 @@ public interface Jukebox {
 
     List getSongs();
     Song getSong(String title);
+
     String getName();
+    void setName(String name);
+
+    void saveSong(Song song);
+    void deleteSong(Song song);
 
 }

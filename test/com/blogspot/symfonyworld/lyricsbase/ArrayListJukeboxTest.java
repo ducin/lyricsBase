@@ -1,5 +1,6 @@
 package com.blogspot.symfonyworld.lyricsbase;
 
+import java.io.IOException;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -13,22 +14,22 @@ import static org.junit.Assert.*;
  * @author Tomasz Ducin <tomasz.ducin@gmail.com>
  */
 public class ArrayListJukeboxTest {
-    
+
     private Jukebox jukebox;
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         jukebox = new ArrayListJukebox("Metal Jukebox");
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -59,5 +60,32 @@ public class ArrayListJukeboxTest {
         Song song = jukebox.getSong("Until it sleeps");
         assertNotNull(song);
         assertEquals("Metallica", song.getAuthor());
+    }
+
+    /**
+     * Test of saveSong method, of class ArrayListJukebox.
+     */
+    @Test
+    public void testSaveSong() {
+        try {
+            assertEquals(5, jukebox.getSongs().size());
+            Song song = new Song("Iron Maiden", "Moonchild", "Seventh Son of a Seventh Son", "song_moonchild.txt");
+            jukebox.saveSong(song);
+            assertEquals(6, jukebox.getSongs().size());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            fail("Test failed because of IOException");
+        }
+    }
+
+    /**
+     * Test of deleteSong method, of class ArrayListJukebox.
+     */
+    @Test
+    public void testDeleteSong() {
+        assertEquals(5, jukebox.getSongs().size());
+        Song song = jukebox.getSong("Falling away from me");
+        jukebox.deleteSong(song);
+        assertEquals(4, jukebox.getSongs().size());
     }
 }
