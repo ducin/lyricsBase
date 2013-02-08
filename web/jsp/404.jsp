@@ -3,8 +3,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/bootsrtap.min.css">
-        <script type="text/javascript" src="<%= request.getContextPath() %>/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+        <style>
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
         <title>lyricsBase: <c:out value="${jukebox.name}" /></title>
     </head>
     <body>
@@ -16,7 +21,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Project name</a>
+                    <a class="brand" href="${pageContext.request.contextPath}">lyricsBase</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="#">Home</a></li>
@@ -29,15 +34,7 @@
         </div>
 
         <div class="container">
-
-            <h1><c:out value="${jukebox.name}" /></h1>
-            Edit songs:<br />
-            <ul>
-                <c:forEach items="${jukebox.songs}" var="song">
-                    <li><a href=""><c:out value="${song.author}" /> - <c:out value="${song.title}" /></a></li>
-                </c:forEach>
-            </ul>
-            <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
-        </div> <!-- /container -->
+            <h1>page doesn't exist</h1>
+        </div>
     </body>
 </html>

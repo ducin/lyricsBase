@@ -70,7 +70,7 @@ public class Song {
     }
 
     public void readLyricsFromFile(String file) throws IOException {
-        String filepath = System.getProperty("user.dir") + "/db/" + file;
+        String filepath = "src/" + file;
         BufferedReader reader = new BufferedReader(new FileReader(filepath));
         String line = null;
         StringBuilder stringBuilder = new StringBuilder();

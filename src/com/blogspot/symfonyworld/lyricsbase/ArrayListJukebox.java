@@ -16,13 +16,17 @@ public class ArrayListJukebox implements Jukebox {
 
     public ArrayListJukebox(String name) {
         this.name = name;
+        Song song;
         try {
-            songs.add(new Song("Metallica", "Until it sleeps", "Load", "song_until_it_sleeps.txt"));
+            song = new Song("Metallica", "Until it sleeps", "Load", null);
+//            song.readLyricsFromFile("song_until_it_sleeps.txt");
+            songs.add(song);
             songs.add(new Song("Korn", "Falling away from me", "Issues", "song_falling_away_from_me.txt"));
-            songs.add(new Song("Dio", "Gve her the gun", "Strange Highways", "song_give_her_the_gun.txt"));
+            songs.add(new Song("Dio", "Give her the gun", "Strange Highways", "song_give_her_the_gun.txt"));
             songs.add(new Song("Deep Purple", "Perfect Strangers", "Perfect Strangers", "song_perfect_strangers.txt"));
             songs.add(new Song("Mother Love Bone", "This is Shangrila", "Apple", "song_this_is_shangrila.txt"));
         } catch (IOException e) {
+            System.out.println("Problem occured...");
             System.out.println(e.getMessage());
         }
     }

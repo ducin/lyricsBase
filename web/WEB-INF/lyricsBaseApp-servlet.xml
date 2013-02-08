@@ -12,11 +12,16 @@
     <bean id="songsController" class="com.blogspot.symfonyworld.lyricsbase.SongsController">
         <property name="facade"><ref bean="jukebox" /></property>
     </bean>
+
+    <bean id="displayController" class="com.blogspot.symfonyworld.lyricsbase.DisplayController">
+        <property name="facade"><ref bean="jukebox" /></property>
+    </bean>
     
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="/jukebox.song">songsController</prop>
+                <prop key="list.html">songsController</prop>
+                <prop key="display.html">displayController</prop>
             </props>
         </property>
     </bean>
