@@ -23,5 +23,12 @@
                 <root id="test.test.dir"/>
             </test-roots>
         </data>
+        <spring-data xmlns="http://www.netbeans.org/ns/spring-data/1">
+            <config-files>
+                <config-file>war/WEB-INF/lyricsBaseApp-servlet.xml</config-file>
+                <config-file>src/Jukebox-context.xml</config-file>
+            </config-files>
+            <config-file-groups/>
+        </spring-data>
     </configuration>
 </project>
