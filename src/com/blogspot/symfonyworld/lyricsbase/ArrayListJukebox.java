@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.net.URL;
 
 /**
  *
@@ -15,16 +16,15 @@ public class ArrayListJukebox implements Jukebox {
     final List songs = new ArrayList();
 
     public ArrayListJukebox(String name) {
+        URL r = this.getClass().getResource("/");
+        String base_path = r.getPath();
         this.name = name;
-        Song song;
         try {
-            song = new Song("Metallica", "Until it sleeps", "Load", null);
-//            song.readLyricsFromFile("song_until_it_sleeps.txt");
-            songs.add(song);
-            songs.add(new Song("Korn", "Falling away from me", "Issues", "song_falling_away_from_me.txt"));
-            songs.add(new Song("Dio", "Give her the gun", "Strange Highways", "song_give_her_the_gun.txt"));
-            songs.add(new Song("Deep Purple", "Perfect Strangers", "Perfect Strangers", "song_perfect_strangers.txt"));
-            songs.add(new Song("Mother Love Bone", "This is Shangrila", "Apple", "song_this_is_shangrila.txt"));
+            songs.add(new Song("Metallica", "Until it sleeps", "Load", base_path + "/song_until_it_sleeps.txt"));
+            songs.add(new Song("Korn", "Falling away from me", "Issues", base_path + "/song_falling_away_from_me.txt"));
+            songs.add(new Song("Dio", "Give her the gun", "Strange Highways", base_path + "/song_give_her_the_gun.txt"));
+            songs.add(new Song("Deep Purple", "Perfect Strangers", "Perfect Strangers", base_path + "/song_perfect_strangers.txt"));
+            songs.add(new Song("Mother Love Bone", "This is Shangrila", "Apple", base_path + "/song_this_is_shangrila.txt"));
         } catch (IOException e) {
             System.out.println("Problem occured...");
             System.out.println(e.getMessage());
