@@ -1,5 +1,6 @@
 <%@ page import="com.blogspot.symfonyworld.lyricsbase.*" contentType="text/html" pageEncoding="UTF-8" %>
 <%@ include file="include.jsp" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,8 +11,12 @@
             }
         </style>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
-        <title>lyricsBase: <c:out value="${jukebox.name}" /></title>
+        <title>
+            <tiles:insertAttribute name="title" />
+            lyricsBase: <c:out value="${jukebox.name}" />
+        </title>
     </head>
+
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
@@ -34,9 +39,7 @@
         </div>
 
         <div class="container">
-            <h1><c:out value="${song.author}" /> - <c:out value="${song.title}" /></h1>
-            <h2>from album "<c:out value="${song.album}" />"</h2>
-            <pre><c:out value="${song.lyrics}" /></pre>
+            tu treść
         </div>
     </body>
 </html>

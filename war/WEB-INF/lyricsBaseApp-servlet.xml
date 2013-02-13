@@ -3,27 +3,41 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-    <bean id="jukebox" class="com.blogspot.symfonyworld.lyricsbase.ArrayListJukebox">
+    <bean id="example_jukebox" class="com.blogspot.symfonyworld.lyricsbase.ArrayListJukebox">
         <property name="name">
             <value>Metal Jukebox</value>
         </property>
     </bean>
 
-    <bean id="songsController" class="com.blogspot.symfonyworld.lyricsbase.SongsController">
-        <property name="facade"><ref bean="jukebox" /></property>
+    <bean id="jukeboxController" class="com.blogspot.symfonyworld.lyricsbase.JukeboxController">
+        <property name="facade"><ref bean="example_jukebox" /></property>
     </bean>
 
-    <bean id="displayController" class="com.blogspot.symfonyworld.lyricsbase.DisplayController">
-        <property name="facade"><ref bean="jukebox" /></property>
+    <bean id="songController" class="com.blogspot.symfonyworld.lyricsbase.SongController">
+        <property name="facade"><ref bean="example_jukebox" /></property>
     </bean>
-    
+
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles-defs.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+        <property name="prefix" value="/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="list.html">songsController</prop>
-                <prop key="display.html">displayController</prop>
+                <prop key="list.html">jukeboxController</prop>
+                <prop key="display.html">songController</prop>
             </props>
         </property>
     </bean>
-        
+
 </beans>

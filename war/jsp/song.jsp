@@ -1,5 +1,5 @@
 <%@ page import="com.blogspot.symfonyworld.lyricsbase.*" contentType="text/html" pageEncoding="UTF-8" %>
-<%@ include file="include.jsp" %>
+<%@ include file="../tiles/include.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -34,13 +34,9 @@
         </div>
 
         <div class="container">
-            <h1><c:out value="${jukebox.name}" /></h1>
-            Display songs:<br />
-            <ul>
-                <c:forEach items="${jukebox.songs}" var="song">
-                    <li><a href="display.html?title=<c:out value="${song.title}" />"><c:out value="${song.author}" /> - <c:out value="${song.title}" /></a></li>
-                </c:forEach>
-            </ul>
+            <h1><c:out value="${song.author}" /> - <c:out value="${song.title}" /></h1>
+            <h2>from album "<c:out value="${song.album}" />"</h2>
+            <pre><c:out value="${song.lyrics}" /></pre>
         </div>
     </body>
 </html>

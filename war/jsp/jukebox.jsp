@@ -34,7 +34,13 @@
         </div>
 
         <div class="container">
-            <h1>page doesn't exist</h1>
+            <h1><c:out value="${jukebox.name}" /></h1>
+            Display songs:<br />
+            <ul>
+                <c:forEach items="${jukebox.songs}" var="song">
+                    <li><a href="display.html?title=<c:out value="${song.title}" />"><c:out value="${song.author}" /> - <c:out value="${song.title}" /></a></li>
+                </c:forEach>
+            </ul>
         </div>
     </body>
 </html>

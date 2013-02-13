@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Tomasz Ducin <tomasz.ducin@gmail.com>
  */
-public class SongsController implements Controller {
+public class JukeboxController implements Controller {
 
     private Jukebox facade;
     
@@ -26,6 +26,6 @@ public class SongsController implements Controller {
     public ModelAndView handleRequest(
             HttpServletRequest httpServletRequest,
             HttpServletResponse httpServletResponse) throws Exception {
-        return new ModelAndView("jsp/index.jsp", "jukebox", facade);
+        return new ModelAndView("tile.jukebox", "jukebox", facade);
     }
 }

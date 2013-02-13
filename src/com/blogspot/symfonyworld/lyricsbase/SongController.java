@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  *
  * @author Tomasz Ducin <tomasz.ducin@gmail.com>
  */
-public class DisplayController implements Controller {
+public class SongController implements Controller {
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class ResourceNotFoundException extends RuntimeException {
@@ -43,6 +43,6 @@ public class ResourceNotFoundException extends RuntimeException {
         HashMap model = new HashMap();
         model.put("jukebox", facade);
         model.put("song", song);
-        return new ModelAndView("jsp/display.jsp", model);
+        return new ModelAndView("tile.song", model);
     }
 }
