@@ -1,6 +1,7 @@
 package com.blogspot.symfonyworld.lyricsbase;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -69,7 +70,8 @@ public class ArrayListJukeboxTest {
     public void testSaveSong() {
         try {
             assertEquals(5, jukebox.getSongs().size());
-            Song song = new Song("Iron Maiden", "Moonchild", "Seventh Son of a Seventh Son", "song_moonchild.txt");
+            URL r = this.getClass().getResource("/");
+            Song song = new Song("Iron Maiden", "Moonchild", "Seventh Son of a Seventh Son", r.getPath() + "/song_moonchild.txt");
             jukebox.saveSong(song);
             assertEquals(6, jukebox.getSongs().size());
         } catch (IOException e) {

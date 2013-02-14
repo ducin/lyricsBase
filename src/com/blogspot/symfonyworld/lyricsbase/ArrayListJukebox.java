@@ -56,7 +56,19 @@ public class ArrayListJukebox implements Jukebox {
     }
 
     @Override
-    public Song getSong(String slug) {
+    public Song getSong(String title) {
+        Iterator it = songs.iterator();
+        while (it.hasNext()) {
+            Song song = (Song) it.next();
+            if (title.equals(song.getTitle())) {
+                return song;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Song getSongBySlug(String slug) {
         Iterator it = songs.iterator();
         while (it.hasNext()) {
             Song song = (Song) it.next();
