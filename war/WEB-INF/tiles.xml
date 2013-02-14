@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD
+Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<!--
+http://www.dzone.com/tutorials/java/spring/spring-tiles-integration-1.html
+http://javageek.org/2005/08/16/the_correct_usage_of_tiles_tags.html
+http://viralpatel.net/blogs/spring-3-mvc-tiles-plugin-tutorial-example-eclipse/
+http://shivasoft.in/blog/java/jsp/tutorial-of-simple-jsp-tiles-application-without-struts/
+-->
+<tiles-definitions>
+
+    <definition name="t.base" template="/WEB-INF/tiles/base.jsp">
+        <put-attribute name="title" value="Template"/>
+<!--
+        <put-attribute name="header" value="/tiles/header.jsp"/>
+        <put-attribute name="menu" value="/tiles/menu.jsp"/>
+        <put-attribute name="body" value="/tiles/body.jsp"/>
+        <put-attribute name="footer" value="/tiles/footer.jsp"/>
+-->
+    </definition>
+  
+    <definition name="t.jukebox" extends="t.base">
+        <put-attribute name="title" value="Jukebox Title!"/>
+        <put-attribute name="body" value="/jsp/jukebox.jsp"/>
+    </definition>
+  
+    <definition name="t.song" extends="t.base">
+        <put-attribute name="title" value="Song Title!"/>
+        <put-attribute name="body" value="/jsp/song.jsp"/>       
+    </definition>
+  
+</tiles-definitions>

@@ -1,5 +1,5 @@
 <%@ page import="com.blogspot.symfonyworld.lyricsbase.*" contentType="text/html" pageEncoding="UTF-8" %>
-<%@ include file="../tiles/include.jsp" %>
+<%@ include file="../WEB-INF/tiles/include.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

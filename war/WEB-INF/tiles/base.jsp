@@ -39,7 +39,7 @@
         </div>
 
         <div class="container">
-            tu treść
+            <tiles:insertAttribute name="body" />
         </div>
     </body>
 </html>

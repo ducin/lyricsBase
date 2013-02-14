@@ -43,6 +43,6 @@ public class ResourceNotFoundException extends RuntimeException {
         HashMap model = new HashMap();
         model.put("jukebox", facade);
         model.put("song", song);
-        return new ModelAndView("tile.song", model);
+        return new ModelAndView("t.song", model);
     }
 }

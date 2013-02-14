@@ -56,11 +56,11 @@ public class ArrayListJukebox implements Jukebox {
     }
 
     @Override
-    public Song getSong(String title) {
+    public Song getSong(String slug) {
         Iterator it = songs.iterator();
         while (it.hasNext()) {
             Song song = (Song) it.next();
-            if (title.equals(song.getTitle())) {
+            if (slug.equals(song.getSlug())) {
                 return song;
             }
         }

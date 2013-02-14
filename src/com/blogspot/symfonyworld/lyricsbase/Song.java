@@ -49,6 +49,10 @@ public class Song {
         this.title = title;
     }
 
+    public String getSlug() {
+        return this.title.replace(' ', '_');
+    }
+
     public String getAlbum() {
         return album;
     }

@@ -9,7 +9,7 @@ import java.util.*;
 public interface Jukebox {
 
     List getSongs();
-    Song getSong(String title);
+    Song getSong(String slug);
 
     String getName();
     void setName(String name);

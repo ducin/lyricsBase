@@ -23,6 +23,12 @@
         <error-code>404</error-code>
         <location>/jsp/404.jsp</location>
     </error-page>
+<!--
+    <listener>
+        <listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+    </listener>
+    usunąć JARy: tiles-extras i tiles-servlet
+-->
     <jsp-config>
         <taglib>
             <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>

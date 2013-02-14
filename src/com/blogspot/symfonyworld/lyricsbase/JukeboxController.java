@@ -26,6 +26,6 @@ public class JukeboxController implements Controller {
     public ModelAndView handleRequest(
             HttpServletRequest httpServletRequest,
             HttpServletResponse httpServletResponse) throws Exception {
-        return new ModelAndView("tile.jukebox", "jukebox", facade);
+        return new ModelAndView("t.jukebox", "jukebox", facade);
     }
 }
