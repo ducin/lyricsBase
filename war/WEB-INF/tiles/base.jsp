@@ -25,7 +25,7 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="#">Home</a></li>
-                            <li><a href="${pageContext.request.contextPath}/about.html">About</a></li>
+                            <li><a href="${pageContext.request.contextPath}/static/about.html">About</a></li>
                         </ul>
                     </div>
                 </div>
