@@ -21,7 +21,7 @@
     </welcome-file-list>
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/jsp/404.jsp</location>
+        <location>/WEB-INF/error/layout-404.jsp</location>
     </error-page>
 <!--
     <listener>

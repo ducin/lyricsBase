@@ -36,4 +36,9 @@ http://shivasoft.in/blog/java/jsp/tutorial-of-simple-jsp-tiles-application-witho
         <put-attribute name="title" value="lyricsBase: about"/>
     </definition>
 
+    <definition name="t.404" extends="t.base">
+        <put-attribute name="body" value="/WEB-INF/error/404.jsp"/>
+        <put-attribute name="title" expression="404 page not found"/>
+    </definition>
+
 </tiles-definitions>
