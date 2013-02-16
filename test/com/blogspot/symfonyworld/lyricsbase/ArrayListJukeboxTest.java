@@ -1,5 +1,8 @@
 package com.blogspot.symfonyworld.lyricsbase;
 
+import com.blogspot.symfonyworld.lyricsbase.model.Jukebox;
+import com.blogspot.symfonyworld.lyricsbase.model.ArrayListJukebox;
+import com.blogspot.symfonyworld.lyricsbase.model.Song;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;

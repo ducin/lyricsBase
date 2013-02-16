@@ -3,11 +3,11 @@
 "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
     
-    <bean id="jukebox" class="com.blogspot.symfonyworld.lyricsbase.ArrayListJukebox">
+    <bean id="jukebox" class="com.blogspot.symfonyworld.lyricsbase.model.ArrayListJukebox">
         <property name="name"><value>Metal Jukebox</value></property>
     </bean>
     
-    <bean id="CommandLineView" class="com.blogspot.symfonyworld.lyricsbase.CommandLineView">
+    <bean id="CommandLineView" class="com.blogspot.symfonyworld.lyricsbase.model.CommandLineView">
         <property name="jukebox"><ref bean="jukebox" /></property>
     </bean>
     

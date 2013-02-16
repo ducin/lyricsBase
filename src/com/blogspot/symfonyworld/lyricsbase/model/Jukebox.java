@@ -1,4 +1,4 @@
-package com.blogspot.symfonyworld.lyricsbase;
+package com.blogspot.symfonyworld.lyricsbase.model;
 
 import java.util.*;
 

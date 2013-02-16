@@ -11,7 +11,7 @@ http://shivasoft.in/blog/java/jsp/tutorial-of-simple-jsp-tiles-application-witho
 <tiles-definitions>
 
     <definition name="t.base" template="/WEB-INF/tiles/base.jsp">
-        <put-attribute name="title" value="Template"/>
+        <put-attribute name="title" value="SomeTitle"/>
 <!--
         <put-attribute name="header" value="/tiles/header.jsp"/>
         <put-attribute name="menu" value="/tiles/menu.jsp"/>
@@ -19,15 +19,21 @@ http://shivasoft.in/blog/java/jsp/tutorial-of-simple-jsp-tiles-application-witho
         <put-attribute name="footer" value="/tiles/footer.jsp"/>
 -->
     </definition>
-  
+
     <definition name="t.jukebox" extends="t.base">
-        <put-attribute name="title" value="Jukebox Title!"/>
-        <put-attribute name="body" value="/jsp/jukebox.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/jukebox.jsp"/>
+        <put-attribute name="title" expression="${jukebox.name} - lyricsBase"/>
+        
     </definition>
-  
+
     <definition name="t.song" extends="t.base">
-        <put-attribute name="title" value="Song Title!"/>
-        <put-attribute name="body" value="/jsp/song.jsp"/>       
+        <put-attribute name="body" value="/WEB-INF/jsp/song.jsp"/>
+        <put-attribute name="title" expression="${song.title} - ${song.author} in ${jukebox.name}"/>
     </definition>
-  
+
+    <definition name="t.static/about" extends="t.base">
+        <put-attribute name="body" value="/WEB-INF/static/about.jsp"/>
+        <put-attribute name="title" value="lyricsBase: about"/>
+    </definition>
+
 </tiles-definitions>

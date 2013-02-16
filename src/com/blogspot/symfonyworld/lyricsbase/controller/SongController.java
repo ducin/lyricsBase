@@ -1,14 +1,16 @@
-package com.blogspot.symfonyworld.lyricsbase;
+package com.blogspot.symfonyworld.lyricsbase.controller;
 
-import java.util.HashMap;
+import com.blogspot.symfonyworld.lyricsbase.model.Jukebox;
+import com.blogspot.symfonyworld.lyricsbase.model.Song;
+
 import org.springframework.web.servlet.mvc.Controller;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.http.HttpStatus;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.catalina.connector.Request;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import java.util.HashMap;
 
 /**
  *
@@ -37,9 +39,11 @@ public class ResourceNotFoundException extends RuntimeException {
     public ModelAndView handleRequest(
             HttpServletRequest request,
             HttpServletResponse response) throws Exception {
-        Song song = facade.getSong(request.getParameter("title"));
+        if (request.getParameter("slug") == null)
+            throw new ResourceNotFoundException("No song chosen.");
+        Song song = facade.getSongBySlug(request.getParameter("slug"));
         if (song == null)
-            throw new ResourceNotFoundException("Song \"" + request.getParameter("title") + "\"not found.");
+            throw new ResourceNotFoundException("Song \"" + request.getParameter("slug") + "\"not found.");
         HashMap model = new HashMap();
         model.put("jukebox", facade);
         model.put("song", song);

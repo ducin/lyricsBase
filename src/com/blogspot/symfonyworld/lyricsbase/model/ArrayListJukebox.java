@@ -1,4 +1,4 @@
-package com.blogspot.symfonyworld.lyricsbase;
+package com.blogspot.symfonyworld.lyricsbase.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
