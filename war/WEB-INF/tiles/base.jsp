@@ -7,8 +7,10 @@
         <title><tiles:insertAttribute name="title" /></title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/lyricsBase.css">
-        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/sortable.js" type="text/javascript"></script>
         <link rel="Shortcut icon" href="${pageContext.request.contextPath}/resources/img/favicon32.png" />
     </head>
 
