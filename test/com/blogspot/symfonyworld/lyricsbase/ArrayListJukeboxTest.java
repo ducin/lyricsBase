@@ -1,10 +1,8 @@
 package com.blogspot.symfonyworld.lyricsbase;
 
-import com.blogspot.symfonyworld.lyricsbase.model.Jukebox;
-import com.blogspot.symfonyworld.lyricsbase.model.ArrayListJukebox;
+import com.blogspot.symfonyworld.lyricsbase.bo.Jukebox;
+import com.blogspot.symfonyworld.lyricsbase.bo.JukeboxImpl;
 import com.blogspot.symfonyworld.lyricsbase.model.Song;
-import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -31,7 +29,8 @@ public class ArrayListJukeboxTest {
 
     @Before
     public void setUp() {
-        jukebox = new ArrayListJukebox("Metal Jukebox");
+        jukebox = new JukeboxImpl();
+        jukebox.setName("Metal Jukebox");
     }
 
     @After
@@ -51,7 +50,7 @@ public class ArrayListJukeboxTest {
      */
     @Test
     public void testGetSongs() {
-        List songs = jukebox.getSongs();
+        List songs = jukebox.getAllSongs();
         assertNotNull(songs);
         assertEquals(5, songs.size());
     }
@@ -61,26 +60,9 @@ public class ArrayListJukeboxTest {
      */
     @Test
     public void testGetSong() {
-        Song song = jukebox.getSong("Until it sleeps");
+        Song song = jukebox.getSongByTitle("Until it sleeps");
         assertNotNull(song);
         assertEquals("Metallica", song.getAuthor());
-    }
-
-    /**
-     * Test of saveSong method, of class ArrayListJukebox.
-     */
-    @Test
-    public void testSaveSong() {
-        try {
-            assertEquals(5, jukebox.getSongs().size());
-            URL r = this.getClass().getResource("/");
-            Song song = new Song("Iron Maiden", "Moonchild", "Seventh Son of a Seventh Son", r.getPath() + "/song_moonchild.txt");
-            jukebox.saveSong(song);
-            assertEquals(6, jukebox.getSongs().size());
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            fail("Test failed because of IOException");
-        }
     }
 
     /**
@@ -88,9 +70,9 @@ public class ArrayListJukeboxTest {
      */
     @Test
     public void testDeleteSong() {
-        assertEquals(5, jukebox.getSongs().size());
-        Song song = jukebox.getSong("Falling away from me");
+        assertEquals(5, jukebox.getAllSongs().size());
+        Song song = jukebox.getSongByTitle("Falling away from me");
         jukebox.deleteSong(song);
-        assertEquals(4, jukebox.getSongs().size());
+        assertEquals(4, jukebox.getAllSongs().size());
     }
 }

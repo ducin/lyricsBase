@@ -1,6 +1,6 @@
 package com.blogspot.symfonyworld.lyricsbase.controller;
 
-import com.blogspot.symfonyworld.lyricsbase.model.Jukebox;
+import com.blogspot.symfonyworld.lyricsbase.bo.Jukebox;
 import org.springframework.web.servlet.mvc.Controller;
 import org.springframework.web.servlet.ModelAndView;
 

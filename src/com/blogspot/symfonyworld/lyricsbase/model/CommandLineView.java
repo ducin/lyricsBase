@@ -1,5 +1,6 @@
 package com.blogspot.symfonyworld.lyricsbase.model;
 
+import com.blogspot.symfonyworld.lyricsbase.bo.Jukebox;
 import java.util.Iterator;
 
 /**
@@ -22,7 +23,7 @@ public class CommandLineView {
 
     public void displayAllSongs() {
         System.out.println(jukebox.toString());
-        Iterator it = jukebox.getSongs().iterator();
+        Iterator it = jukebox.getAllSongs().iterator();
         while (it.hasNext()) {
             Song song = (Song) it.next();
             System.out.println(song.toString());

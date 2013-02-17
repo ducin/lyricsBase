@@ -1,14 +1,24 @@
 package com.blogspot.symfonyworld.lyricsbase.model;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Tomasz Ducin <tomasz.ducin@gmail.com>
  */
-public class Song {
+@Entity
+@Table(name="lyric")
+public class Song implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private long id = 1L;
 
     private String author;
     private String title;
@@ -18,18 +28,27 @@ public class Song {
     public Song() {
     }
 
-    public Song(String author, String title, String album, String lyrics_path) throws IOException {
+    public Song(Long id, String author, String title, String album, String lyrics) {
+        this.id = id;
         this.author = author;
         this.title = title;
         this.album = album;
-        readLyricsFromFile(lyrics_path);
+        this.lyrics = lyrics;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String toString() {
         return "Song:"
-                + "\nauthor: " + author
-                + "\ntitle: " + title
-                + "\nalbum: " + album
+                + "\nauthor: " + getAuthor()
+                + "\ntitle: " + getTitle()
+                + "\nalbum: " + getAlbum()
                 + "\nlyrics: " + getShortenedLyrics();
     }
 
@@ -50,7 +69,7 @@ public class Song {
     }
 
     public String getSlug() {
-        return this.title.replace(' ', '_');
+        return this.getTitle().replace(' ', '_');
     }
 
     public String getAlbum() {
@@ -66,25 +85,10 @@ public class Song {
     }
 
     public void setLyrics(String lyrics) {
-        this.title = lyrics;
+        this.lyrics = lyrics;
     }
 
     public String getShortenedLyrics() {
         return lyrics.substring(0, 100) + "...";
-    }
-
-    private void readLyricsFromFile(String file) throws IOException {
-        String filepath = file;
-        BufferedReader reader = new BufferedReader(new FileReader(filepath));
-        String line = null;
-        StringBuilder stringBuilder = new StringBuilder();
-        String ls = System.getProperty("line.separator");
-
-        while ((line = reader.readLine()) != null) {
-            stringBuilder.append(line);
-            stringBuilder.append(ls);
-        }
-
-        lyrics = stringBuilder.toString();
     }
 }

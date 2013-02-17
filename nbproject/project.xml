@@ -11,11 +11,23 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
+                    <file>${libs.MySQLDriver.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
                     <file>${libs.Spring Framework 3.2.1 RELEASE.classpath}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${libs.Tiles_3.0.1.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${libs.Hibernate_4.1.9.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.commons-dbcp-1.4.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
@@ -31,6 +43,7 @@
             <config-files>
                 <config-file>war/WEB-INF/lyricsBaseApp-servlet.xml</config-file>
                 <config-file>src/Jukebox-context.xml</config-file>
+                <config-file>war/WEB-INF/dataSource.xml</config-file>
             </config-files>
             <config-file-groups/>
         </spring-data>

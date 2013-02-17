@@ -1,6 +1,6 @@
 DROP SCHEMA IF EXISTS `lyricsbase`;
 
-CREATE SCHEMA `lyricsbase`;
+CREATE SCHEMA `lyricsbase` COLLATE utf8_general_ci;
 
 USE `lyricsbase`;
 

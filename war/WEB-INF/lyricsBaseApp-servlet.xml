@@ -3,20 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-    <bean id="example_jukebox" class="com.blogspot.symfonyworld.lyricsbase.model.ArrayListJukebox">
-        <property name="name">
-            <value>Metal Jukebox</value>
-        </property>
-    </bean>
-
-    <bean id="jukeboxController" class="com.blogspot.symfonyworld.lyricsbase.controller.JukeboxController">
-        <property name="facade"><ref bean="example_jukebox" /></property>
-    </bean>
-
-    <bean id="songController" class="com.blogspot.symfonyworld.lyricsbase.controller.SongController">
-        <property name="facade"><ref bean="example_jukebox" /></property>
-    </bean>
-
     <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
         <property name="definitions">
             <list>
@@ -29,9 +15,6 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
     </bean>
 
-    <bean id="staticViewController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController">
-        <property name="prefix" value="t." />
-    </bean>
 
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
@@ -42,5 +25,10 @@
             </props>
         </property>
     </bean>
+
+    <!-- database -->
+    <import resource="dataSource.xml"/>
+    <import resource="hibernate.xml"/>
+    <import resource="beans.xml"/>
 
 </beans>
