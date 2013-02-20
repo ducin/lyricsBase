@@ -24,7 +24,7 @@ http://www.madbit.org/blog/programming/457/persisting-object-with-spring-3-1-and
         </property>
         <property name="mappingResources">
             <list>
-                <value>com/blogspot/symfonyworld/lyricsbase/model/Song.hbm.xml</value>
+                <value>rds/hibernate/Song.hbm.xml</value>
             </list>
         </property>	
     </bean>
