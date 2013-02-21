@@ -1,6 +1,7 @@
 package com.blogspot.symfonyworld.lyricsbase.model;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,11 +19,19 @@ public class Song implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
     private long id = 1L;
 
+    @Column(name = "author")
     private String author;
+    
+    @Column(name = "title")
     private String title;
+    
+    @Column(name = "lyric_text")
     private String lyrics;
+    
+    @Column(name = "album")
     private String album;
 
     public Song() {
