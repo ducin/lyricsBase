@@ -2,10 +2,10 @@ package com.blogspot.symfonyworld.lyricsbase.bo;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.blogspot.symfonyworld.lyricsbase.dao.SongDao;
 import com.blogspot.symfonyworld.lyricsbase.model.Song;
-
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  *

@@ -1,7 +1,8 @@
 package com.blogspot.symfonyworld.lyricsbase.dao;
 
-import com.blogspot.symfonyworld.lyricsbase.model.Song;
 import java.util.List;
+
+import com.blogspot.symfonyworld.lyricsbase.model.Song;
 
 /**
  *

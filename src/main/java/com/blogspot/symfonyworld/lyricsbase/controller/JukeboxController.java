@@ -1,11 +1,12 @@
 package com.blogspot.symfonyworld.lyricsbase.controller;
 
-import com.blogspot.symfonyworld.lyricsbase.bo.Jukebox;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.servlet.mvc.Controller;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.blogspot.symfonyworld.lyricsbase.bo.Jukebox;
 
 /**
  *

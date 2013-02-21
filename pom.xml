@@ -19,25 +19,34 @@
 
     <dependencies>
         <dependency>
-            <artifactId>javaee-web-api</artifactId>
-            <groupId>javax</groupId>
-            <version>6.0</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
+            <groupId>javax.servlet</groupId>
+            <type>jar</type>
             <version>1.2</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
+            <groupId>org.slf4j</groupId>
+            <type>jar</type>
             <version>1.5.6</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <groupId>mysql</groupId>
+            <type>jar</type>
             <version>5.1.6</version>
+        </dependency>
+        <dependency>
+            <artifactId>hibernate-validator</artifactId>
+            <groupId>org.hibernate</groupId>
+            <type>jar</type>
+            <version>4.2.0.Final</version>
         </dependency>
         <dependency>
             <artifactId>hibernate-core</artifactId>
@@ -68,6 +77,13 @@
             <groupId>org.springframework</groupId>
             <type>jar</type>
             <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>spring-test</artifactId>
+            <groupId>org.springframework</groupId>
+            <type>jar</type>
+            <version>3.2.1.RELEASE</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <artifactId>spring-tx</artifactId>
@@ -124,8 +140,9 @@
             <version>${org.apache.tiles.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-jsp</artifactId>
+            <groupId>org.apache.tiles</groupId>
+            <type>jar</type>
             <version>${org.apache.tiles.version}</version>
         </dependency>
         <dependency>
@@ -135,11 +152,11 @@
             <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <groupId>junit</groupId>
+            <type>jar</type>
             <version>4.10</version>
             <scope>test</scope>
-            <type>jar</type>
         </dependency>
     </dependencies>
 

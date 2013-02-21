@@ -10,7 +10,7 @@ CREATE TABLE `lyric` (
 `lyric_text` text NOT NULL,
 `author` VARCHAR(64) NOT NULL,
 `album` VARCHAR(64) NOT NULL,
-`created_at` DATETIME NOT NULL,
+`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
 UNIQUE KEY `lyric_author_title` (`title`,`author`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

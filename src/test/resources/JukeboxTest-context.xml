@@ -1,4 +1,20 @@
-Seven deadly sins 
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <!-- database -->
+    <import resource="classpath:dataSource.xml"/>
+    <import resource="classpath:hibernate.xml"/>
+    <import resource="classpath:beans.xml"/>
+
+    <!-- test data -->
+    <bean id="test_song" class="com.blogspot.symfonyworld.lyricsbase.model.Song" >
+        <property name="author" value="Iron Maiden" />
+        <property name="title" value="Moonchild" />
+        <property name="album" value="Moonchild" />
+        <property name="lyrics">
+            <value>Seven deadly sins 
 Seven ways to win 
 Seven holy paths to hell 
 And your trip begins 
@@ -53,4 +69,8 @@ For I'll see you damned in endless night
 Moonchild - hear the mandrake scream 
 Moonchild - open the seventh seal 
 Moonchild - You'll be mine soon child 
-Moonchild - take my hand tonight
+Moonchild - take my hand tonight</value>
+        </property>
+    </bean>
+
+</beans>

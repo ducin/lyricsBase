@@ -7,9 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.blogspot.symfonyworld.lyricsbase.model.Song;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
