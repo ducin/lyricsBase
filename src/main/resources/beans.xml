@@ -9,7 +9,7 @@
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <bean id="metal_jukebox" class="com.blogspot.symfonyworld.lyricsbase.bo.JukeboxImpl">
+    <bean id="metalJukebox" class="com.blogspot.symfonyworld.lyricsbase.bo.JukeboxImpl">
         <property name="name" value="Metal Jukebox" />
         <property name="songDao" ref="songDao" />
     </bean>
@@ -18,13 +18,13 @@
 
     <bean id="jukeboxController" class="com.blogspot.symfonyworld.lyricsbase.controller.JukeboxController">
         <property name="facade">
-            <ref bean="metal_jukebox" />
+            <ref bean="metalJukebox" />
         </property>
     </bean>
 
     <bean id="songController" class="com.blogspot.symfonyworld.lyricsbase.controller.SongController">
         <property name="facade">
-            <ref bean="metal_jukebox" />
+            <ref bean="metalJukebox" />
         </property>
     </bean>
 

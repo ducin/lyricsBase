@@ -1,43 +1,49 @@
 package com.blogspot.symfonyworld.lyricsbase;
 
 import com.blogspot.symfonyworld.lyricsbase.bo.Jukebox;
-import com.blogspot.symfonyworld.lyricsbase.bo.JukeboxImpl;
 import com.blogspot.symfonyworld.lyricsbase.model.Song;
 
 import java.util.List;
+import javax.annotation.Resource;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  *
  * @author Tomasz Ducin <tomasz.ducin@gmail.com>
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations = {"/dataSource.xml",
-//                                   "/hibernate.xml", 
-//                                   "/beans.xml"})
-//@ContextConfiguration("file:src/main/webapp/WEB-INF/lyricsBaseApp-servlet.xml")
-//@ContextConfiguration(locations={"/JukeboxTest-context.xml"})
-//@ContextConfiguration
-//@ContextConfiguration("/JukeboxTest-context.xml")
-@ContextConfiguration(value = "classpath:*.xml")
+@ContextConfiguration(value = "classpath:JukeboxTest-context.xml")
+@Transactional
+@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 public class JukeboxTest {
 
     @Autowired
     private ApplicationContext applicationContext;
-    
+
+    @Resource(name = "metalJukebox")
     private Jukebox jukebox;
+
+    @Resource(name = "sessionFactory")
+    private SessionFactory sessionFactory;
+
+    private Session session = null;
 
     @BeforeClass
     public static void setUpClass() {
@@ -47,13 +53,20 @@ public class JukeboxTest {
     public static void tearDownClass() {
     }
 
+    /**
+     * Open session for each test.
+     */
     @Before
     public void setUp() {
-        jukebox = (Jukebox) applicationContext.getBean("metal_jukebox");
+        session = sessionFactory.openSession();
     }
 
+    /**
+     * Close session after each test.
+     */
     @After
     public void tearDown() {
+        session.close();
     }
 
     /**
@@ -85,17 +98,15 @@ public class JukeboxTest {
     }
 
     /**
-     * Test of deleteSong method, of class ArrayListJukebox.
+     * Test of saveSong and deleteSong method, of class ArrayListJukebox.
      */
-    /*
     @Test
     public void testInsertAndDeleteSong() {
         assertEquals(5, jukebox.getAllSongs().size());
-        Song song = (Song) applicationContext.getBean("test_song");
+        Song song = (Song) applicationContext.getBean("testSong");
         jukebox.saveSong(song);
         assertEquals(6, jukebox.getAllSongs().size());
         jukebox.deleteSong(song);
         assertEquals(5, jukebox.getAllSongs().size());
     }
-    */
 }

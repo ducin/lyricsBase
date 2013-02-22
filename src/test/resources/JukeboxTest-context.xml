@@ -9,7 +9,7 @@
     <import resource="classpath:beans.xml"/>
 
     <!-- test data -->
-    <bean id="test_song" class="com.blogspot.symfonyworld.lyricsbase.model.Song" >
+    <bean id="testSong" class="com.blogspot.symfonyworld.lyricsbase.model.Song" >
         <property name="author" value="Iron Maiden" />
         <property name="title" value="Moonchild" />
         <property name="album" value="Moonchild" />

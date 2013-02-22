@@ -19,6 +19,8 @@ public class SongDaoImpl implements SongDao {
 
     @Autowired
     private SessionFactory sessionFactory;
+
+    Session session = null;
          
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -26,23 +28,20 @@ public class SongDaoImpl implements SongDao {
 
     @Override
     public void save(Song song) {
-        Session session = sessionFactory.getCurrentSession();
+        session = sessionFactory.getCurrentSession();
         session.save(song);
-        session.close();
     }
 
     @Override
     public void update(Song song) {
-        Session session = sessionFactory.getCurrentSession();
+        session = sessionFactory.getCurrentSession();
         session.save(song);
-        session.close();
     }
 
     @Override
     public void delete(Song song) {
-        Session session = sessionFactory.getCurrentSession();
+        session = sessionFactory.getCurrentSession();
         session.delete(song);
-        session.close();
     }
 
     @Override
