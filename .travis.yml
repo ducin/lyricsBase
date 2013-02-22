@@ -1,6 +1,14 @@
 language: java
+
 jdk:
   - openjdk6
+
+services:
+  - mysql
+
+before_script:
+  - mysql < src/main/resources/sql/access.sql
+  - mysql < src/main/resources/sql/schema.sql
 
 script: mvn test
 
