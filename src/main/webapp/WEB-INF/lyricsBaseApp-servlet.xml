@@ -15,7 +15,6 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
     </bean>
 
-
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
@@ -27,8 +26,8 @@
     </bean>
 
     <!-- database -->
-    <import resource="classpath:**/dataSource.xml"/>
-    <import resource="classpath:**/hibernate.xml"/>
-    <import resource="classpath:**/beans.xml"/>
+    <import resource="classpath:dataSource.xml"/>
+    <import resource="classpath:hibernate.xml"/>
+    <import resource="classpath:beans.xml"/>
 
 </beans>
