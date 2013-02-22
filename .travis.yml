@@ -9,6 +9,7 @@ services:
 before_script:
   - mysql -u root < src/main/resources/sql/access.sql
   - mysql -u root < src/main/resources/sql/schema.sql
+  - mysql -u root < src/main/resources/sql/data.sql
 
 script: mvn test
 
