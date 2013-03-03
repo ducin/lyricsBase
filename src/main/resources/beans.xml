@@ -28,6 +28,12 @@
         </property>
     </bean>
 
+    <bean id="homepageController" class="com.blogspot.symfonyworld.lyricsbase.controller.HomepageController">
+        <property name="message">
+            <value>Welcome to lyricsBase website!</value>
+        </property>
+    </bean>
+
     <bean id="staticViewController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController">
         <property name="prefix" value="t." />
     </bean>

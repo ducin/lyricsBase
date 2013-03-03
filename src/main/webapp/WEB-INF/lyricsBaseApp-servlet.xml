@@ -6,7 +6,7 @@
     <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
         <property name="definitions">
             <list>
-                <value>classpath:**/tiles.xml</value>
+                <value>classpath:tiles.xml</value>
             </list>
         </property>
     </bean>
@@ -18,7 +18,8 @@
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="/list.html">jukeboxController</prop>
+                <prop key="/index.html">homepageController</prop>
+                <prop key="/jukebox.html">jukeboxController</prop>
                 <prop key="/display.html">songController</prop>
                 <prop key="/static/about.html">staticViewController</prop>
             </props>

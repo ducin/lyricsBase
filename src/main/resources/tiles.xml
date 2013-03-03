@@ -11,34 +11,49 @@ http://shivasoft.in/blog/java/jsp/tutorial-of-simple-jsp-tiles-application-witho
 <tiles-definitions>
 
     <definition name="t.base" template="/WEB-INF/tiles/base.jsp">
-        <put-attribute name="title" value="SomeTitle"/>
-<!--
-        <put-attribute name="header" value="/tiles/header.jsp"/>
-        <put-attribute name="menu" value="/tiles/menu.jsp"/>
-        <put-attribute name="body" value="/tiles/body.jsp"/>
-        <put-attribute name="footer" value="/tiles/footer.jsp"/>
--->
+        <put-attribute name="title" value="SomeTitle" />
+        <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp" />
+        <put-attribute name="scripts" value="/WEB-INF/tiles/scripts.jsp" />
+    </definition>
+
+    <definition name="t.footer" template="/WEB-INF/tiles/footer.jsp" />
+
+    <definition name="t.container" extends="t.base">
+        <put-attribute name="body" value="/WEB-INF/tiles/container.jsp" />
+    </definition>
+
+    <definition name="t.homepage" extends="t.base">
+        <put-attribute name="body" value="/WEB-INF/jsp/homepage.jsp" />
+        <put-attribute name="title" value="lyricsBase : home of lyrics" />
+        <put-attribute name="view" value="homepage" cascade="true" />
     </definition>
 
     <definition name="t.jukebox" extends="t.base">
-        <put-attribute name="body" value="/WEB-INF/jsp/jukebox.jsp"/>
-        <put-attribute name="title" expression="${jukebox.name} - lyricsBase"/>
-        
+        <put-attribute name="body" value="/WEB-INF/tiles/container.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/jukebox.jsp" cascade="true" />
+        <put-attribute name="title" expression="${jukebox.name} - lyricsBase" />
+        <put-attribute name="view" value="jukebox" cascade="true" />
     </definition>
 
-    <definition name="t.song" extends="t.base">
-        <put-attribute name="body" value="/WEB-INF/jsp/song.jsp"/>
-        <put-attribute name="title" expression="${song.title} - ${song.author} in ${jukebox.name}"/>
+    <definition name="t.song" extends="t.container">
+        <put-attribute name="body" value="/WEB-INF/tiles/container.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/song.jsp" cascade="true" />
+        <put-attribute name="title" expression="${song.title} - ${song.author} in ${jukebox.name}" />
+        <put-attribute name="view" value="song" cascade="true" />
     </definition>
 
-    <definition name="t.static/about" extends="t.base">
-        <put-attribute name="body" value="/WEB-INF/static/about.jsp"/>
-        <put-attribute name="title" value="lyricsBase: about"/>
+    <definition name="t.static/about" extends="t.container">
+        <put-attribute name="body" value="/WEB-INF/tiles/container.jsp" />
+        <put-attribute name="content" value="/WEB-INF/static/about.jsp" cascade="true" />
+        <put-attribute name="title" value="lyricsBase: about" />
+        <put-attribute name="view" value="about" cascade="true" />
     </definition>
 
-    <definition name="t.404" extends="t.base">
-        <put-attribute name="body" value="/WEB-INF/error/404.jsp"/>
-        <put-attribute name="title" expression="404 error: page not found"/>
+    <definition name="t.404" extends="t.container">
+        <put-attribute name="body" value="/WEB-INF/tiles/container.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/404.jsp" cascade="true" />
+        <put-attribute name="title" expression="404 error: page not found" />
+        <put-attribute name="view" value="404" cascade="true" />
     </definition>
 
 </tiles-definitions>
