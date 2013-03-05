@@ -14,6 +14,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap-collapse.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap-carousel.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap-typeahead.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootbox-3.2.0.js"></script>
 <script>
 !function ($) {
   $(function(){

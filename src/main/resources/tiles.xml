@@ -42,6 +42,13 @@ http://shivasoft.in/blog/java/jsp/tutorial-of-simple-jsp-tiles-application-witho
         <put-attribute name="view" value="song" cascade="true" />
     </definition>
 
+    <definition name="t.edit" extends="t.container">
+        <put-attribute name="body" value="/WEB-INF/tiles/container.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/edit.jsp" cascade="true" />
+        <put-attribute name="title" expression="editing '${song.title}' by ${song.author}" />
+        <put-attribute name="view" value="edit" cascade="true" />
+    </definition>
+
     <definition name="t.static/about" extends="t.container">
         <put-attribute name="body" value="/WEB-INF/tiles/container.jsp" />
         <put-attribute name="content" value="/WEB-INF/static/about.jsp" cascade="true" />

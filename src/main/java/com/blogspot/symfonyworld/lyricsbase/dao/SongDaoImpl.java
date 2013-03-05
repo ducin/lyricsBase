@@ -36,12 +36,14 @@ public class SongDaoImpl implements SongDao {
     public void update(Song song) {
         session = sessionFactory.getCurrentSession();
         session.save(song);
+        session.flush();
     }
 
     @Override
     public void delete(Song song) {
         session = sessionFactory.getCurrentSession();
         session.delete(song);
+        session.flush();
     }
 
     @Override

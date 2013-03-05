@@ -20,11 +20,15 @@
             <props>
                 <prop key="/index.html">homepageController</prop>
                 <prop key="/jukebox.html">jukeboxController</prop>
-                <prop key="/display.html">songController</prop>
+                <prop key="/song/display.html">songController</prop>
+                <prop key="/song/delete.html">songController</prop>
+                <prop key="/song/edit.html">songController</prop>
                 <prop key="/static/about.html">staticViewController</prop>
             </props>
         </property>
     </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
 
     <!-- database -->
     <import resource="classpath:dataSource.xml"/>

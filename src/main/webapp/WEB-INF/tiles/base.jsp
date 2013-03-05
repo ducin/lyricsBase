@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap-responsive.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/lyricsBase.css">
 
+    <tiles:insertAttribute name="scripts" />
   </head>
   <body>
 
@@ -40,7 +41,5 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <tiles:insertAttribute name="body" />
-
-    <tiles:insertAttribute name="scripts" />
   </body>
 </html>
