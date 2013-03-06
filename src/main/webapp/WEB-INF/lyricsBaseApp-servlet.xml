@@ -23,6 +23,8 @@
                 <prop key="/song/display.html">songController</prop>
                 <prop key="/song/delete.html">songController</prop>
                 <prop key="/song/edit.html">songController</prop>
+                <prop key="/song/add.html">songController</prop>
+                <prop key="/song/submit.html">songController</prop>
                 <prop key="/static/about.html">staticViewController</prop>
             </props>
         </property>

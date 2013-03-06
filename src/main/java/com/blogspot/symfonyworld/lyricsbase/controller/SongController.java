@@ -6,11 +6,14 @@ import java.util.HashMap;
 
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.http.HttpStatus;
 
 import com.blogspot.symfonyworld.lyricsbase.bo.Jukebox;
 import com.blogspot.symfonyworld.lyricsbase.model.Song;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -60,6 +63,22 @@ public class SongController extends MultiActionController {
         }
         facade.deleteSong(song);
         return new ModelAndView("redirect:/jukebox.html");
+    }
+
+    @RequestMapping(value = "/song/submit.html", method = RequestMethod.POST)
+    public ModelAndView submit(@RequestParam("song") Song song) throws Exception {
+        HashMap model = new HashMap();
+        model.put("song", song);
+        // or do something better here...
+        return new ModelAndView("t.edit", model);
+    }
+
+    public ModelAndView add(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        Song song = new Song();
+        HashMap model = new HashMap();
+        model.put("song", song);
+        return new ModelAndView("t.edit", model);
     }
 
     public ModelAndView edit(HttpServletRequest request,

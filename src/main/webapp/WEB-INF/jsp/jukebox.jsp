@@ -18,6 +18,10 @@ Display songs:<br />
     </c:forEach>
 </ul>
 
+<a href="${pageContext.request.contextPath}/song/add.html">
+    <i class="icon-plus"></i>add new song
+</a>
+
 <script>
     $(document).on("click", ".confirm", function(e) {
         e.preventDefault();
