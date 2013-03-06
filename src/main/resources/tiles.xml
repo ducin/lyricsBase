@@ -58,7 +58,7 @@ http://shivasoft.in/blog/java/jsp/tutorial-of-simple-jsp-tiles-application-witho
 
     <definition name="t.404" extends="t.container">
         <put-attribute name="body" value="/WEB-INF/tiles/container.jsp" />
-        <put-attribute name="content" value="/WEB-INF/jsp/404.jsp" cascade="true" />
+        <put-attribute name="content" value="/WEB-INF/error/404.jsp" cascade="true" />
         <put-attribute name="title" expression="404 error: page not found" />
         <put-attribute name="view" value="404" cascade="true" />
     </definition>
