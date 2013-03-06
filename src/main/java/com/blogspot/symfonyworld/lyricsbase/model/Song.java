@@ -20,7 +20,7 @@ public class Song implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id")
-    private long id = 1L;
+    private long id;
 
     @Column(name = "author")
     private String author;

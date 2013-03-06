@@ -28,7 +28,7 @@ http://shivasoft.in/blog/java/jsp/tutorial-of-simple-jsp-tiles-application-witho
         <put-attribute name="view" value="homepage" cascade="true" />
     </definition>
 
-    <definition name="t.jukebox" extends="t.base">
+    <definition name="t.jukebox" extends="t.base" preparer="com.blogspot.symfonyworld.lyricsbase.controller.TestViewPreparer">
         <put-attribute name="body" value="/WEB-INF/tiles/container.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/jukebox.jsp" cascade="true" />
         <put-attribute name="title" expression="${jukebox.name} - lyricsBase" />

@@ -5,8 +5,8 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.blogspot.symfonyworld.lyricsbase.model.Song;
@@ -21,6 +21,7 @@ public class SongDaoImpl implements SongDao {
     private SessionFactory sessionFactory;
 
     Session session = null;
+    Transaction tx = null;
          
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -28,49 +29,74 @@ public class SongDaoImpl implements SongDao {
 
     @Override
     public void save(Song song) {
-        session = sessionFactory.getCurrentSession();
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
         session.save(song);
+        tx.commit();
+        session.close();
     }
 
     @Override
     public void update(Song song) {
-        session = sessionFactory.getCurrentSession();
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
         session.save(song);
-        session.flush();
+        tx.commit();
+        session.close();
     }
 
     @Override
     public void delete(Song song) {
-        session = sessionFactory.getCurrentSession();
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
         session.delete(song);
-        session.flush();
+        tx.commit();
+        session.close();
     }
 
     @Override
     public List findAllSongs() {
-        return sessionFactory.getCurrentSession().createQuery(
-                "FROM Song").list(); 
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        List list = session.createQuery("FROM Song").list();
+        tx.commit();
+        session.close();
+        return list;
     }
 
     @Override
     public Song findBySongId(Long id) {
-        return (Song) sessionFactory.getCurrentSession().get(
-                Song.class, new Long(id));
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        Song song = (Song) session.get(Song.class, new Long(id));
+        tx.commit();
+        session.close();
+        return song;
     }
 
     @Override
     public Song findBySongTitle(String title) {
-        Query query = sessionFactory.getCurrentSession().createQuery(
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        Query query = session.createQuery(
                 "SELECT s FROM Song s WHERE s.title = :title");
         query.setParameter("title", title);
-        return (Song) query.uniqueResult();
+        Song song = (Song) query.uniqueResult();
+        tx.commit();
+        session.close();
+        return song;
     }
 
     @Override
     public Song findBySongSlug(String slug) {
-        Query query = sessionFactory.getCurrentSession().createQuery(
+        session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        Query query = session.createQuery(
                 "SELECT s FROM Song s WHERE s.title = :title");
         query.setParameter("title", slug.replace('_', ' '));
-        return (Song) query.uniqueResult();
+        Song song = (Song) query.uniqueResult();
+        tx.commit();
+        session.close();
+        return song;
     }
 }
